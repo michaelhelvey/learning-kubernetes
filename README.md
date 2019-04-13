@@ -12,19 +12,19 @@ This is not a tutorial. It's a developer's diary as I try to work through some c
 
 Moving forward, I want to answer a couple of questions:
 
-[ ] What really is Kubernetes?
+- What really is Kubernetes?
 
-[ ] What does `docker stack deploy` do? I know I can deploy a compose file in `swarm` mode, but I don't really understand how that relates to virtual machines tbh.
+- What does `docker stack deploy` do? I know I can deploy a compose file in `swarm` mode, but I don't really understand how that relates to virtual machines tbh.
 
-[ ] What is the difference between Kubernetes and Docker swarm?
+- What is the difference between Kubernetes and Docker swarm?
 
-[ ] How can I model a multi-machine microservice architecture locally with docker? I have Kubernetes installed on my machine and loads of docs about using using Kubernetes locally with Docker to test your cluster, but no clue how to use it.
+- How can I model a multi-machine microservice architecture locally with docker? I have Kubernetes installed on my machine and loads of docs about using using Kubernetes locally with Docker to test your cluster, but no clue how to use it.
 
 ### Goals
 
-[ ] Create a micro-service based system for my personal blog with a few distinct microservices (auth, blogapi, blog frontend, nginx proxy) which will be defined via a `docker-compose` file, and deployed on a Kubernetes (stack? namespace? container? IDK what you're supposed to call it)
+- Create a micro-service based system for my personal blog with a few distinct microservices (auth, blogapi, blog frontend, nginx proxy) which will be defined via a `docker-compose` file, and deployed on a Kubernetes (stack? namespace? container? IDK what you're supposed to call it)
 
-[ ] I should be able to successfully model "scaling" this stack over more or less virtual machines on my local computer.
+- I should be able to successfully model "scaling" this stack over more or less virtual machines on my local computer.
 
 Alright, so here goes.
 
