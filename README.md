@@ -86,3 +86,11 @@ Alright so just exploring the [dashboard](http://localhost:8001/api/v1/namespace
 I'm going to add these topics to my "things to learn" list above and move on.
 
 > Once you have a running Kubernetes cluster, you can deploy your containerized applications on top of it. To do so, you create a Kubernetes Deployment configuration. The Deployment instructs Kubernetes how to create and update instances of your application. Once you've created a Deployment, the Kubernetes master schedules mentioned application instances onto individual Nodes in the cluster.
+
+## FAQ
+
+- Now that I have this great microservice architecture how do I route requests to mydomain.com to the cluster and how does that all work?
+
+Kubernetes handles its own internal DNS between services. Most services won't be connected to the outside internet at all. But you need one service as a frontend router which will handle "ingress" into your cluster. [Like so](https://kubernetes.io/docs/concepts/services-networking/ingress/). In order for an ingress to work, you must have an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/). This isn't anything fancy. It's basically a glorified nginx server, or something. Just a reverse-proxy server configured for kubernetes. One really good option is [traefik](https://github.com/containous/traefik). An ingress controller has a publically accessible IP address. You create an A record to that IP address with whoever manages your DNS records, and everything proceeds normally.
+
+Want to add load balancing? Tack a load balancer service onto your kubernetes cluster. Like on digital ocean: https://www.digitalocean.com/docs/kubernetes/how-to/add-load-balancers/. In this example, the digital ocean load balancer can automatically handle letsencrypt etc, and will have an IP address that you can point to with an A record. From what I understand, the load balancer would probably just point at your existing ingress.
